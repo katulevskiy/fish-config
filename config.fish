@@ -24,6 +24,7 @@ alias vim nvim
 alias lg lazygit
 
 set -gx PATH /home/user/anaconda3/condabin $PATH
+zoxide init fish | source
 
 # function fish_prompt
 #   set_color cyan; echo (pwd)
