@@ -23,6 +23,15 @@ alias tree 'exa -T --level=3 --icons'
 alias vim nvim
 alias lg lazygit
 
+function y
+    set tmp (mktemp -t "yazi-cwd.XXXXXX")
+    yazi $argv --cwd-file="$tmp"
+    if read -z cwd <"$tmp"; and [ -n "$cwd" ]; and [ "$cwd" != "$PWD" ]
+        builtin cd -- "$cwd"
+    end
+    rm -f -- "$tmp"
+end
+
 set -gx PATH /home/user/anaconda3/condabin $PATH
 zoxide init fish | source
 
