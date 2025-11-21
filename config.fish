@@ -32,11 +32,12 @@ function y
     rm -f -- "$tmp"
 end
 
-# Add Conda binary to path
+# Fallback: Add standard paths to PATH just in case, but the function handles the rest.
+if test -d $HOME/anaconda3/condabin
+    fish_add_path $HOME/anaconda3/condabin
+end
 if test -d $HOME/.cache/conda/condabin
-    set -gx PATH $HOME/.cache/conda/condabin $PATH
-else if test -d $HOME/anaconda3/condabin
-    set -gx PATH $HOME/anaconda3/condabin $PATH
+    fish_add_path $HOME/.cache/conda/condabin
 end
 
 zoxide init fish | source
