@@ -7,10 +7,20 @@ function fish_prompt -d "Write out the prompt"
 end
 
 if status is-interactive
-    # Commands to run in interactive sessions can go here
-    set fish_greeting
-
+    # All commands that produce output go here
+    # e.g., fish_greeting, neofetch, etc.
+    set -g fish_greeting ""
 end
+
+if not status is-interactive
+    exit
+end
+
+# if status is-interactive
+#     # Commands to run in interactive sessions can go here
+#     set fish_greeting
+#
+# end
 
 starship init fish | source
 if test -f ~/.local/state/quickshell/user/generated/terminal/sequences.txt
