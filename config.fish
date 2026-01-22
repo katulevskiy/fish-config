@@ -56,3 +56,6 @@ zoxide init fish | source
 #   set_color cyan; echo (pwd)
 #   set_color green; echo '> '
 # end
+export PATH="$HOME/.local/bin:$PATH"
+set -gx ANTHROPIC_BASE_URL "http://localhost:8080"
+set -gx ANTHROPIC_AUTH_TOKEN "test"
